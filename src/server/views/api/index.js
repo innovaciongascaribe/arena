@@ -5,6 +5,7 @@ const getFlow = require('./getFlow');
 const jobAdd = require('./jobAdd');
 const jobPromote = require('./jobPromote');
 const jobRetry = require('./jobRetry');
+const jobPromote = require('./jobPromote');
 const jobRemove = require('./jobRemove');
 const repeatableJobRemove = require('./repeatableJobRemove');
 const bulkJobsPromote = require('./bulkJobsPromote');
@@ -27,6 +28,7 @@ router.delete(
 router.patch('/queue/:queueHost/:queueName/job/:id', jobRetry);
 router.put('/queue/:queueHost/:queueName/pause', queuePause);
 router.put('/queue/:queueHost/:queueName/resume', queueResume);
+router.put('/queue/:queueHost/:queueName/job/:id', jobPromote);
 router.delete('/queue/:queueHost/:queueName/job/:id', jobRemove);
 
 module.exports = router;
