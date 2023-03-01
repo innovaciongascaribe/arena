@@ -4,7 +4,7 @@ const Arena = require('./src/server/app');
 const routes = require('./src/server/views/routes');
 
 function run(config, listenOpts = {}) {
-  const {app, Queues} = Arena(config);
+  const { app, Queues } = Arena(config);
 
   Queues.useCdn =
     typeof listenOpts.useCdn !== 'undefined' ? listenOpts.useCdn : true;
@@ -30,5 +30,7 @@ function run(config, listenOpts = {}) {
 
   return app;
 }
+
+if (require.main === module) run();
 
 module.exports = run;

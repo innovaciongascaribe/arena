@@ -5,7 +5,6 @@ const getFlow = require('./getFlow');
 const jobAdd = require('./jobAdd');
 const jobPromote = require('./jobPromote');
 const jobRetry = require('./jobRetry');
-const jobPromote = require('./jobPromote');
 const jobRemove = require('./jobRemove');
 const repeatableJobRemove = require('./repeatableJobRemove');
 const bulkJobsPromote = require('./bulkJobsPromote');
