@@ -2,12 +2,12 @@
 
 {{#unless queueIsBee}}
 {{#if isPaused}}
-<button class="btn btn-xs btn-success js-resume-queue" style="margin-bottom: 12px;" data-queue-host="{{ queueHost }}"
+<button class="btn btn-success js-resume-queue" style="margin-bottom: 12px;" data-queue-host="{{ queueHost }}"
   data-queue-name="{{ queueName }}">
   Resume queue
 </button>
 {{else}}
-<button class="btn btn-xs btn-danger js-pause-queue" style="margin-bottom: 12px;" data-queue-host="{{ queueHost }}"
+<button class="btn btn-danger js-pause-queue" style="margin-bottom: 12px;" data-queue-host="{{ queueHost }}"
   data-queue-name="{{ queueName }}">
   Pause queue
 </button>

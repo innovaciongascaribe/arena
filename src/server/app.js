@@ -18,10 +18,10 @@ module.exports = function (config) {
   const Queues = require('./queue');
   const Flows = require('./flow');
 
-  const arenaConfig = { Bull, ...defaultConfig, ...config }
+  const arenaConfig = {Bull, ...defaultConfig, ...config};
   const queues = new Queues(arenaConfig);
   const flows = new Flows(arenaConfig);
-  require('./views/helpers/handlebars')(handlebars, { queues });
+  require('./views/helpers/handlebars')(handlebars, {queues});
   app.locals.Queues = queues;
   app.locals.Flows = flows;
   app.locals.appBasePath = '';

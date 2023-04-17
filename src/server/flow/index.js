@@ -61,17 +61,8 @@ class Flows {
       return this._flows[queueHost][connectionName];
     }
 
-    const {
-      type,
-      port,
-      host,
-      db,
-      password,
-      prefix,
-      url,
-      redis,
-      tls,
-    } = flowConfig;
+    const {type, port, host, db, password, prefix, url, redis, tls} =
+      flowConfig;
 
     const redisHost = {host};
     if (password) redisHost.password = password;
