@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
+const Bull = require('bull');
 
 module.exports = function (config) {
   const hbs = exphbs.create({
@@ -14,19 +15,19 @@ module.exports = function (config) {
   const app = express();
 
   const defaultConfig = require('./config/index.json');
-
   const Queues = require('./queue');
   const Flows = require('./flow');
 
-  const queues = new Queues({...defaultConfig, ...config});
-  const flows = new Flows({...defaultConfig, ...config});
+  const arenaConfig = {Bull, ...defaultConfig, ...config};
+  const queues = new Queues(arenaConfig);
+  const flows = new Flows(arenaConfig);
   require('./views/helpers/handlebars')(handlebars, {queues});
   app.locals.Queues = queues;
   app.locals.Flows = flows;
   app.locals.appBasePath = '';
   app.locals.vendorPath = '/vendor';
-  app.locals.customCssPath = config.customCssPath;
-  app.locals.customJsPath = config.customJsPath;
+  app.locals.customCssPath = arenaConfig.customCssPath;
+  app.locals.customJsPath = arenaConfig.customJsPath;
 
   app.set('views', `${__dirname}/views`);
   app.set('view engine', 'hbs');

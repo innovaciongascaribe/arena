@@ -378,11 +378,13 @@ $(document).ready(() => {
       `Are you sure you want to pause the queue "${queueHost}/${queueName}"?`
     );
     if (response) {
+      const queryParams =
+        queueHost && queueName
+          ? `/${encodeURIComponent(queueHost)}/${encodeURIComponent(queueName)}`
+          : '';
       $.ajax({
         method: 'PUT',
-        url: `${basePath}/api/queue/${encodeURIComponent(
-          queueHost
-        )}/${encodeURIComponent(queueName)}/pause`,
+        url: `${basePath}/api/queue${queryParams}/pause`,
       })
         .done(() => {
           window.location.reload();
@@ -405,11 +407,13 @@ $(document).ready(() => {
       `Are you sure you want to resume the queue "${queueHost}/${queueName}"?`
     );
     if (response) {
+      const queryParams =
+        queueHost && queueName
+          ? `/${encodeURIComponent(queueHost)}/${encodeURIComponent(queueName)}`
+          : '';
       $.ajax({
         method: 'PUT',
-        url: `${basePath}/api/queue/${encodeURIComponent(
-          queueHost
-        )}/${encodeURIComponent(queueName)}/resume`,
+        url: `${basePath}/api/queue${queryParams}/resume`,
       })
         .done(() => {
           window.location.reload();

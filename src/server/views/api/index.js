@@ -26,6 +26,8 @@ router.delete(
 );
 router.patch('/queue/:queueHost/:queueName/job/:id', jobRetry);
 router.put('/queue/:queueHost/:queueName/pause', queuePause);
+router.put('/queue/pause', queuePause);
+router.put('/queue/resume', queueResume);
 router.put('/queue/:queueHost/:queueName/resume', queueResume);
 router.delete('/queue/:queueHost/:queueName/job/:id', jobRemove);
 

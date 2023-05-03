@@ -124,9 +124,9 @@
 <pre><code>{{this.failedReason}}</code></pre>
 {{/if}}
 
-{{#if stacktraces}}
+{{#if this.stacktrace}}
 <h5>Stacktraces</h5>
-{{#each stacktraces}}
+{{#each this.stacktrace}}
 <pre>{{ this }}</pre>
 {{/each}}
 {{/if}}

@@ -31,4 +31,6 @@ function run(config, listenOpts = {}) {
   return app;
 }
 
+if (require.main === module) run();
+
 module.exports = run;

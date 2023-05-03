@@ -52,21 +52,17 @@ async function handler(req, res) {
     job.processedCount = processedCount;
     job.unprocessedCount = unprocessedCount;
 
-    const {
-      processed,
-      unprocessed,
-      nextProcessedCursor,
-      nextUnprocessedCursor,
-    } = await job.getDependencies({
-      processed: {
-        cursor: processedCursor,
-        count: processedCount,
-      },
-      unprocessed: {
-        cursor: unprocessedCursor,
-        count: unprocessedCount,
-      },
-    });
+    const {processed, unprocessed, nextProcessedCursor, nextUnprocessedCursor} =
+      await job.getDependencies({
+        processed: {
+          cursor: processedCursor,
+          count: processedCount,
+        },
+        unprocessed: {
+          cursor: unprocessedCursor,
+          count: unprocessedCount,
+        },
+      });
     const count = await job.getDependenciesCount();
     job.countDependencies = count;
 
