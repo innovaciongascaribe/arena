@@ -375,7 +375,9 @@ $(document).ready(() => {
     const queueHost = $(this).data('queue-host');
 
     const response = window.confirm(
-      `Are you sure you want to pause the queue "${queueHost}/${queueName}"?`
+      `Are you sure you want to pause the queue${
+        queueHost && queueName ? ` "${queueHost}/${queueName}"` : 's'
+      }?`
     );
     if (response) {
       const queryParams =
@@ -404,7 +406,9 @@ $(document).ready(() => {
     const queueHost = $(this).data('queue-host');
 
     const response = window.confirm(
-      `Are you sure you want to resume the queue "${queueHost}/${queueName}"?`
+      `Are you sure you want to resume the queue${
+        queueHost && queueName ? ` "${queueHost}/${queueName}"` : 's'
+      }?`
     );
     if (response) {
       const queryParams =
